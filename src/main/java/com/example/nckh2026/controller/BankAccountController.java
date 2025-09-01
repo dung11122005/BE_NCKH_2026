@@ -55,10 +55,6 @@ public class BankAccountController {
 
     @GetMapping("/bankaccount/{number}")
         public ResponseEntity<ResAccountBankDTO> getBankAccountNumber(@PathVariable("number") String number) {
-
-        String username = SecurityContextHolder.getContext().getAuthentication().getName();
-
-        User user = this.userService.handleGetUserByUsername(username);
         
         Optional<BankAccount> account = this.bankAccountService.handleGetBankAccountNumber(number);
 
